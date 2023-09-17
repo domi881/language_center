@@ -1,0 +1,33 @@
+
+{
+  "manifest_version": 2,
+  "name": "Language Center",
+  "version": "1",
+  "permissions": [
+       "storage",
+       "tabs",
+       "scripting","webRequest", "<all_urls>"
+  ],
+  "icons": {
+     "132": "camera-movie.png"
+   },
+  "browser_action": {
+    "default_icon": "camera-movie.png",
+    "default_title": "Power",
+    "default_popup": "popup.html"
+  },
+  "background": {
+     "scripts": ["popup.js"],
+     "persistent": true
+   },
+  "web_accessible_resources": ["translator_tool.js", "language_center.js", "script.js", "https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.hu.TCFM4dZhOGw.O/d=1/exm=el_conf/ed=1/rs=AN8SPfoHBYxbgTYkqmoPHD8kwkvldMCgAA/m=el_main"],
+  "content_scripts": [
+       {
+            "matches": [
+                 "https://www.netflix.com/browse",
+                 "https://www.netflix.com/watch/*"
+            ],
+            "js": ["content.js"]
+       }
+   ]
+}
